@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkt Søgning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Produkt Katalog</h1>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <input type="search" id="search-input" placeholder="Søg efter produkter..." class="search-input">
+
+                <select id="predefined-search" class="predefined-select">
+                    <option value="">---- Sorter efter ----</option>
+                    <option value="populaere">Mest populære</option>
+                    <option value="pris-stigende">Pris: Lav til høj</option>
+                    <option value="pris-faldende">Pris: Høj til lav</option>
+                </select>
+
+                <button id="filter-toggle" class="filter-button">
+                    <span>🔍 Filtrer</span>
+                </button>
+            </div>
+
+            <div id="filter-panel" class="filter-panel">
+                <div class="filter-header">
+                    <h2>Filtrer Produkter</h2>
+                    <button id="close-filter" class="close-button">&times;</button>
+                </div>
+
+                <div class="filter-content">
+                    <div class="filter-group">
+                        <label class="filter-label">Kategori</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="elektronik"> Elektronik
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="tøj"> Tøj
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="møbler"> Møbler
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="bøger"> Bøger
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Pris interval</label>
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="Min pris" class="price-input">
+                            <span class="price-separator">-</span>
+                            <input type="number" id="max-price" placeholder="Max pris" class="price-input">
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Vurdering</label>
+                        <div class="rating-group">
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="5"> ★★★★★
+                            </label>
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="4"> ★★★★
+                            </label>
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="3"> ★★★
+                            </label>
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="2"> ★★
+                            </label>
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="1"> ★
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Farve</label>
+                        <div class="color-group">
+                            <label class="color-label">
+                                <input type="checkbox" name="color" value="rød"> Rød
+                            </label>
+                            <label class="color-label">
+                                <input type="checkbox" name="color" value="blå"> Blå
+                            </label>
+                            <label class="color-label">
+                                <input type="checkbox" name="color" value="grøn"> Grøn
+                            </label>
+                            <label class="color-label">
+                                <input type="checkbox" name="color" value="sort"> Sort
+                            </label>
+                            <label class="color-label">
+                                <input type="checkbox" name="color" value="hvid"> Hvid
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-footer">
+                    <button id="apply-filters" class="apply-button">Vis Produkter</button>
+                </div>
+            </div>
+
+            <div id="products-container" class="products-container">
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Produkt Katalog</p>
+        </footer>
+    </div>
+
+    <dialog id="product-dialog">
+        <article class="dialog-content">
+            <img id="dialog-image" src="" alt="" class="product-image">
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-description"></p>
+            <div class="product-meta">
+                <span id="dialog-price" class="product-price"></span>
+                <span id="dialog-category" class="product-category"></span>
+            </div>
+            <div id="dialog-rating" class="product-rating"></div>
+            <menu class="dialog-actions">
+                <button id="dialog-close" value="cancel">Luk</button>
+            </menu>
+        </article>
+    </dialog>
+
+    <div id="overlay" class="overlay"></div>
+    <script src="data.js"></script>
+    <script src="scriptui.js"></script>
+    <script src="scriptfilt.js"></script>
+</body>
+
+</html>
