@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 
@@ -9,14 +10,24 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <header>
             <h1>Vælg et Spil</h1>
         </header>
 
         <main>
+
+            <!-- SØGNING OG FILTERKNAP -->
             <div class="search-container">
-                <input type="search" id="search-input" placeholder="Søg efter spil..." class="search-input">
+
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Søg efter spil..."
+                    class="search-input"
+                >
 
                 <select id="predefined-search" class="predefined-select">
                     <option value="">---- Sorter efter ----</option>
@@ -25,131 +36,244 @@
                     <option value="3+ personer">3+ personer</option>
                 </select>
 
-                <button id="filter-toggle" class="filter-button">
+                <button type="button" id="filter-toggle" class="filter-button">
                     <span>🔍 Filtrer</span>
                 </button>
+
             </div>
 
+
+            <!-- FILTERPANEL -->
             <div id="filter-panel" class="filter-panel">
+
                 <div class="filter-header">
                     <h2>Filtrer spil</h2>
-                    <button id="close-filter" class="close-button">&times;</button>
+
+                    <button type="button" id="close-filter" class="close-button">
+                        &times;
+                    </button>
                 </div>
+
 
                 <div class="filter-content">
+
+                    <!-- KATEGORI -->
                     <div class="filter-group">
+
                         <label class="filter-label">Kategori</label>
+
                         <div class="checkbox-group">
+
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Kold sved"> Kold sved
+                                <input type="checkbox" name="category" value="Kold sved">
+                                Kold sved
                             </label>
+
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Hjernekraft"> Hjernekraft
+                                <input type="checkbox" name="category" value="Hjernekraft">
+                                Hjernekraft
                             </label>
+
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Legende"> Legende 
+                                <input type="checkbox" name="category" value="Legende">
+                                Legende
                             </label>
+
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Spænding"> Spænding
+                                <input type="checkbox" name="category" value="Spænding">
+                                Spænding
                             </label>
+
                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Fordybelse"> Fordybelse 
+                                <input type="checkbox" name="category" value="Fordybelse">
+                                Fordybelse
                             </label>
-                             <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Alle"> Alle 
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="Alle">
+                                Alle
                             </label>
+
                         </div>
                     </div>
 
+
+                    <!-- ANTAL SPILLERE -->
                     <div class="filter-group">
+
                         <label class="filter-label">Antal spillere</label>
+
                         <div class="price-range">
-                            <input type="number" id="min-price" placeholder="Min spillere" class="price-input">
+
+                            <input
+                                type="number"
+                                id="min-price"
+                                placeholder="Min. spillere"
+                                class="price-input"
+                                min="1"
+                            >
+
                             <span class="price-separator">-</span>
-                            <input type="number" id="max-price" placeholder="Max spillere" class="price-input">
+
+                            <input
+                                type="number"
+                                id="max-price"
+                                placeholder="Max. spillere"
+                                class="price-input"
+                                min="1"
+                            >
+
                         </div>
                     </div>
 
+
+                    <!-- SVÆRHEDSGRAD -->
                     <div class="filter-group">
+
                         <label class="filter-label">Sværhedsgrad</label>
+
                         <div class="rating-group">
+
                             <label class="rating-label">
-                                <input type="radio" name="rating" value="5"> ★★★★★
+                                <input type="radio" name="rating" value="5">
+                                ★★★★★
                             </label>
+
                             <label class="rating-label">
-                                <input type="radio" name="rating" value="4"> ★★★★
+                                <input type="radio" name="rating" value="4">
+                                ★★★★
                             </label>
+
                             <label class="rating-label">
-                                <input type="radio" name="rating" value="3"> ★★★
+                                <input type="radio" name="rating" value="3">
+                                ★★★
                             </label>
+
                             <label class="rating-label">
-                                <input type="radio" name="rating" value="2"> ★★
+                                <input type="radio" name="rating" value="2">
+                                ★★
                             </label>
+
                             <label class="rating-label">
-                                <input type="radio" name="rating" value="1"> ★
+                                <input type="radio" name="rating" value="1">
+                                ★
                             </label>
+
                         </div>
                     </div>
 
+
+                    <!-- VARIGHED -->
                     <div class="filter-group">
+
                         <label class="filter-label">Varighed</label>
+
                         <div class="duration-group">
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="5-10 min"> 5-10 min
+                                <input type="checkbox" name="duration" value="5-10 min">
+                                5-10 min
                             </label>
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="10-20 min"> 10-20 min
+                                <input type="checkbox" name="duration" value="10-20 min">
+                                10-20 min
                             </label>
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="20-30 min"> 20-30 min
+                                <input type="checkbox" name="duration" value="20-30 min">
+                                20-30 min
                             </label>
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="30-40 min"> 30-40 min
+                                <input type="checkbox" name="duration" value="30-40 min">
+                                30-40 min
                             </label>
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="40-60 Min"> 40-60 Min
+                                <input type="checkbox" name="duration" value="40-60 Min">
+                                40-60 min
                             </label>
+
                             <label class="duration-label">
-                                <input type="checkbox" name="duration" value="60+ min"> 60+ Min
+                                <input type="checkbox" name="duration" value="60+ min">
+                                60+ min
                             </label>
+
                         </div>
                     </div>
+
                 </div>
 
+
+                <!-- FILTERKNAP -->
                 <div class="filter-footer">
-                    <button id="apply-filters" class="apply-button">Find et Spil</button>
+
+                    <button type="button" id="apply-filters" class="apply-button">
+                        Find et spil
+                    </button>
+
                 </div>
+
             </div>
 
+
+            <!-- OVERLAY -->
+            <div id="overlay" class="overlay"></div>
+
+
+            <!-- SPILKORT -->
             <div id="products-container" class="products-container">
             </div>
+
         </main>
 
+
         <footer>
-            <p>&copy; 2026 Produkt Katalog</p>
+            <p>&copy; 2026 Spil Cafe</p>
         </footer>
+
     </div>
 
+
+    <!-- DIALOGBOKS -->
     <dialog id="product-dialog">
+
         <article class="dialog-content">
+
             <img id="dialog-image" src="" alt="" class="product-image">
+
             <h2 id="dialog-title"></h2>
+
             <p id="dialog-description"></p>
+
             <div class="product-meta">
+
                 <span id="dialog-price" class="product-price"></span>
+
                 <span id="dialog-category" class="product-category"></span>
+
             </div>
+
             <div id="dialog-rating" class="product-rating"></div>
+
             <menu class="dialog-actions">
-                <button id="dialog-close" value="cancel">Luk</button>
+
+                <button type="button" id="dialog-close" value="cancel">
+                    Luk
+                </button>
+
             </menu>
+
         </article>
+
     </dialog>
 
-    <div id="overlay" class="overlay"></div>
+
+    <!-- JAVASCRIPT -->
     <script src="data.js"></script>
     <script src="scriptui.js"></script>
     <script src="scriptfilt.js"></script>
-</body>
 
+</body>
 </html>

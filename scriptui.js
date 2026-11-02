@@ -123,8 +123,29 @@ productDialog.addEventListener("click", function(event) {
     if (event.target === productDialog) {
         productDialog.close();
     }
+const filterPanel = document.getElementById("filter-panel");
+const overlay = document.getElementById("overlay");
+const closeFilter = document.getElementById("close-filter");
+
+// Åbner filterpanelet
+filterToggle.addEventListener("click", function() {
+    filterPanel.classList.add("active");
+    overlay.classList.add("active");
+});
+
+// Lukker filterpanelet
+function closeFilterPanel() {
+    filterPanel.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+// Lukker med krydset
+closeFilter.addEventListener("click", closeFilterPanel);
+
+// Lukker ved klik på overlay
+overlay.addEventListener("click", closeFilterPanel);
+    
 });
 
 
-// Viser alle spil, når siden indlæses
-displayProducts(products);
+
