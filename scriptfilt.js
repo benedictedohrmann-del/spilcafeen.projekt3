@@ -1,3 +1,4 @@
+"use strict";
 function filtrerProdukter() {
 
     // Kopierer alle spil fra data.js
