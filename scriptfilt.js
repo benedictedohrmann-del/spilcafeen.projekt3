@@ -133,10 +133,8 @@ document.getElementById("search-input").addEventListener("input", filtrerProdukt
 document.getElementById("predefined-search").addEventListener("change", filtrerProdukter);
 
 // Anvend filtre
-document.getElementById("apply-filters").addEventListener("click", function () {
-
+document.getElementById("apply-filters").addEventListener("click", function() {
     filtrerProdukter();
-
     closeFilterPanel();
-
 });
+
