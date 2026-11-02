@@ -123,6 +123,7 @@ productDialog.addEventListener("click", function(event) {
     if (event.target === productDialog) {
         productDialog.close();
     };
+const filterToggle = document.getElementById("filter-toggle");
 const filterPanel = document.getElementById("filter-panel");
 const overlay = document.getElementById("overlay");
 const closeFilter = document.getElementById("close-filter");
@@ -137,7 +138,7 @@ filterToggle.addEventListener("click", function() {
 function closeFilterPanel() {
     filterPanel.classList.remove("active");
     overlay.classList.remove("active");
-}
+};
 
 // Lukker med krydset
 closeFilter.addEventListener("click", closeFilterPanel);
@@ -145,7 +146,6 @@ closeFilter.addEventListener("click", closeFilterPanel);
 // Lukker ved klik på overlay
 overlay.addEventListener("click", closeFilterPanel);
     
-
 });
 
 
