@@ -1,99 +1,130 @@
-// -------------- Javascript til håndtering af filtreringspanel -----------------
-// -------------- og visning af produkt-kort og dialogboks.     -----------------
-// DOM elementer
-const filterPanel = document.getElementById('filter-panel');
-const overlay = document.getElementById('overlay');
-const filterToggle = document.getElementById('filter-toggle');
-const closeFilter = document.getElementById('close-filter');
-const productsContainer = document.getElementById('products-container');
+"use strict";
+
+// Henter HTML-elementerne
+const productsContainer = document.getElementById("products-container");
+
+const productDialog = document.getElementById("product-dialog");
+const dialogImage = document.getElementById("dialog-image");
+const dialogTitle = document.getElementById("dialog-title");
+const dialogDescription = document.getElementById("dialog-description");
+const dialogPrice = document.getElementById("dialog-price");
+const dialogCategory = document.getElementById("dialog-category");
+const dialogRating = document.getElementById("dialog-rating");
+const dialogClose = document.getElementById("dialog-close");
 
 
+// Viser alle spil på siden
 function displayProducts(productsToDisplay) {
-    productsContainer.innerHTML = '';
 
+    // Rydder containeren, før nye spil vises
+    productsContainer.innerHTML = "";
+
+    // Hvis der ikke findes spil
     if (productsToDisplay.length === 0) {
-        productsContainer.innerHTML = '<p class="no-products">Ingen produkter fundet. Prøv at justere dine filtre.</p>';
+        productsContainer.innerHTML = "<p>Ingen spil fundet. Prøv at ændre din søgning eller dine filtre.</p>";
         return;
     }
 
-    // Vis produkter
+    // Gennemgår hvert spil i arrayet
     productsToDisplay.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.className = 'product-card';
 
-        const ratingStars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
+        // Laver stjerner ud fra spillets sværhedsgrad
+        const ratingStars =
+            "★".repeat(product.rating) +
+            "☆".repeat(5 - product.rating);
+
+        // Viser antal spillere
+        const players = product.maxPlayers === Infinity
+            ? `${product.minPlayers}+ spillere`
+            : `${product.minPlayers}-${product.maxPlayers} spillere`;
+
+        // Opretter produktkortet
+        const productCard = document.createElement("article");
+        productCard.classList.add("product-card");
 
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="product-image">
-            <div class="product-info">
-                <h3 class="product-title">${product.title}</h3>
-                <p class="product-description">${product.description}</p>
-                <div class="product-meta">
-                    <span class="product-price">${product.price.toLocaleString('da-DK')} DKK</span>
-                    <span class="product-category">${product.category}</span>
-                </div>
-                <div class="product-rating">${ratingStars}</div>
-                <button class="product-button" onclick="showProductDialog(${product.id})">Vis</button>
-            </div>
+            <img src="${product.image}" alt="${product.title}">
+            <h3>${product.title}</h3>
+            <p>${product.description}</p>
+
+            <p>${players}</p>
+            <p>${product.category}</p>
+            <p>Varighed: ${product.durationLabel}</p>
+            <p class="rating">${ratingStars}</p>
+
+            <button class="show-product" data-id="${product.id}">
+                Læs mere
+            </button>
         `;
 
+        // Tilføjer produktkortet til siden
         productsContainer.appendChild(productCard);
     });
 }
 
-const dialog = document.getElementById('product-dialog');
 
-// Åbner dialogen og udfylder felterne med det valgte produkt
+// Åbner dialogboksen med information om et spil
 function showProductDialog(productId) {
-    const product = products.find(p => p.id === productId);
-    document.getElementById('dialog-image').src = product.image;
-    document.getElementById('dialog-image').alt = product.title;
-    document.getElementById('dialog-title').textContent = product.title;
-    document.getElementById('dialog-description').textContent = product.description;
-    document.getElementById('dialog-price').textContent = product.price.toLocaleString('da-DK') + ' DKK';
-    document.getElementById('dialog-category').textContent = product.category;
 
-    const ratingStars = '★'.repeat(product.rating) + '☆'.repeat(5 - product.rating);
-    document.getElementById('dialog-rating').textContent = ratingStars;
+    // Finder spillet i products-arrayet
+    const product = products.find(game => game.id === productId);
 
-    dialog.showModal(); // åbner som modal med baggrundsdæmpning
+    // Stopper funktionen, hvis spillet ikke findes
+    if (!product) return;
+
+    // Laver stjerner ud fra sværhedsgraden
+    const ratingStars =
+        "★".repeat(product.rating) +
+        "☆".repeat(5 - product.rating);
+
+    // Viser oplysningerne i dialogboksen
+    dialogImage.src = product.image;
+    dialogImage.alt = product.title;
+
+    dialogTitle.textContent = product.title;
+    dialogDescription.textContent = product.description;
+
+    dialogPrice.textContent = product.maxPlayers === Infinity
+        ? `${product.minPlayers}+ spillere · ${product.durationLabel}`
+        : `${product.minPlayers}-${product.maxPlayers} spillere · ${product.durationLabel}`;
+
+    dialogCategory.textContent = product.category;
+    dialogRating.textContent = ratingStars;
+
+    // Åbner dialogboksen
+    productDialog.showModal();
 }
 
 
-// Event listeners til håndtering af brugergrænseflade
-filterToggle.addEventListener('click', toggleFilterPanel);
-closeFilter.addEventListener('click', closeFilterPanel);
-overlay.addEventListener('click', closeFilterPanel);
-// Luk-knappen i dialogboksen
-document.getElementById('dialog-close').addEventListener('click', () => dialog.close());
+// Lytter efter klik på knapperne "Læs mere"
+productsContainer.addEventListener("click", function(event) {
 
-// Luk filter panel
-function closeFilterPanel() {
-    filterPanel.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+    // Undersøger om der blev klikket på en Læs mere-knap
+    if (event.target.classList.contains("show-product")) {
 
-// Åbn/luk filter panel
-function toggleFilterPanel() {
-    filterPanel.classList.toggle('active');
-    overlay.classList.toggle('active');
+        // Henter spillets ID fra knappen
+        const productId = Number(event.target.dataset.id);
 
-    if (filterPanel.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Luk med filter panel med Escape tast
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && filterPanel.classList.contains('active')) {
-        closeFilterPanel();
+        // Åbner dialogboksen
+        showProductDialog(productId);
     }
 });
 
-// Initial visning
-window.addEventListener('DOMContentLoaded', () => {
-    displayProducts(products);
+
+// Lukker dialogboksen
+dialogClose.addEventListener("click", function() {
+    productDialog.close();
 });
+
+
+// Lukker dialogboksen, hvis man klikker på overlayet
+productDialog.addEventListener("click", function(event) {
+
+    if (event.target === productDialog) {
+        productDialog.close();
+    }
+});
+
+
+// Viser alle spil, når siden indlæses
+displayProducts(products);

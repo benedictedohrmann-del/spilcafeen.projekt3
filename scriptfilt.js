@@ -1,72 +1,142 @@
-// Her skal vi skrive vores søge-, sortering- og filtreringskoder
-function filtrerProdukter(list) {
-    let filteredProducts =[...products];
-    
-    const searchText = document.getElementById("search-input") .value.toLowerCase(). trim();
+function filtrerProdukter() {
+
+    // Kopierer alle spil fra data.js
+    let filteredProducts = [...products];
+
+
+    // 1. SØGNING
+    const searchText = document.getElementById("search-input").value.toLowerCase().trim();
 
     if (searchText) {
-        filteredProducts =filteredProducts.filter(product =>
-    product.title.toLowerCase(). includes(searchText)||
-    product.description.toLowerCase().includes(searchText)||
-    product.category.toLowerCase().includes(searchText)
-);
+        filteredProducts = filteredProducts.filter(product =>
+            product.title.toLowerCase().includes(searchText) ||
+            product.description.toLowerCase().includes(searchText) ||
+            product.category.toLowerCase().includes(searchText) ||
+            product.gameType.toLowerCase().includes(searchText) ||
+            product.language.toLowerCase().includes(searchText)
+        );
+    }
+
+
+    // 2. KATEGORI / STEMNING
+    const categories = Array.from(
+        document.querySelectorAll('input[name="category"]:checked')
+    ).map(cb => cb.value);
+
+    if (categories.length > 0 && !categories.includes("Alle")) {
+        filteredProducts = filteredProducts.filter(product =>
+            categories.includes(product.category)
+        );
+    }
+
+
+    // 3. ANTAL SPILLERE
+    const minPlayersInput = document.getElementById("min-price").value;
+    const maxPlayersInput = document.getElementById("max-price").value;
+
+    const minPlayers = minPlayersInput !== "" ? Number(minPlayersInput) : null;
+    const maxPlayers = maxPlayersInput !== "" ? Number(maxPlayersInput) : null;
+
+    if (minPlayers !== null) {
+        filteredProducts = filteredProducts.filter(product =>
+            product.maxPlayers >= minPlayers
+        );
+    }
+
+    if (maxPlayers !== null) {
+        filteredProducts = filteredProducts.filter(product =>
+            product.minPlayers <= maxPlayers
+        );
+    }
+
+
+    // 4. SVÆRHEDSGRAD
+    const rating = document.querySelector(
+        'input[name="rating"]:checked'
+    )?.value;
+
+    if (rating !== undefined) {
+        filteredProducts = filteredProducts.filter(product =>
+            product.rating === Number(rating)
+        );
+    }
+
+
+    // 5. VARIGHED
+    const durations = Array.from(
+        document.querySelectorAll('input[name="duration"]:checked')
+    ).map(cb => cb.value);
+
+    if (durations.length > 0) {
+
+        filteredProducts = filteredProducts.filter(product =>
+            durations.some(duration => {
+
+                // 60 minutter eller mere
+                if (duration === "60+ min") {
+                    return product.duration >= 60;
+                }
+
+                // Opdel tidsintervallet
+                const [min, max] = duration
+                    .replace(" min", "")
+                    .replace(" Min", "")
+                    .split("-")
+                    .map(Number);
+
+                return product.duration >= min &&
+                    product.duration <= max;
+            })
+        );
+    }
+
+
+    // 6. FORUDDEFINEREDE VALG
+    const sorterEfter = document.getElementById("predefined-search").value;
+
+    if (sorterEfter === "2-3 personer") {
+
+        filteredProducts = filteredProducts.filter(product =>
+            product.maxPlayers >= 2 &&
+            product.minPlayers <= 3
+        );
+    }
+
+    if (sorterEfter === "3+ personer") {
+
+        filteredProducts = filteredProducts.filter(product =>
+            product.maxPlayers >= 3
+        );
+    }
+
+
+    // 7. MEST POPULÆRE
+    if (sorterEfter === "populaere") {
+        filteredProducts.sort((a, b) =>
+            b.popularity - a.popularity
+        );
+    }
+
+
+    // VIS RESULTATER
+    displayProducts(filteredProducts);
+
 }
 
-const
-categories = Array.from(document.querySelectorAll(`input[name="category"]:checked`)) .map(cb => cb.value);
-const
-colors = Array.from(document.querySelectorAll(`input[name="color"]:checked`)) .map(cb => cb.value);
-const minPrice = parseFloat(document.getElementById ('min-price') .value);
-const maxPrice = parseFloat(document.getElementById ('max-price').value);
-const
-rating = document.querySelector('input[name="rating"]:checked')?.value|| null;
 
-if(categories.length > 0) {
-    filteredProducts = filteredProducts.filter(product => 
-    categories.includes(product.category)
-);
-}
-if (colors.length > 0){
-    filteredProducts = filteredProducts.filter(product => 
-    colors.includes(product.color)
-    );
-}
-if(!isNaN(minPrice)){
-    filteredProducts = filteredProducts.filter(product => 
-    product.price >= minPrice
-    );
-}
-if(!isNaN(maxPrice)){
-    filteredProducts = filteredProducts.filter(product => 
-    product.price <= maxPrice
-    );
-}
-if(rating !== null) {
-    filteredProducts =filteredProducts.filter(product =>
-        product.rating >= Number(rating)
-    );
-}
+// EVENT LISTENERS
 
-const sorterEfter = document.getElementById ("predefined-search") .value;
-if(sorterEfter && sorterEfter === "populaere") {
-    filteredProducts.sort((a,b)=> b.rating - a.rating);
-}
+// Søg efter spil
+document.getElementById("search-input").addEventListener("input", filtrerProdukter);
 
-if(sorterEfter && sorterEfter === "pris-stigende") {
-    filteredProducts.sort((a,b)=> b.price - a.price);
-}
-if(sorterEfter && sorterEfter === "pris-faldende") {
-    filteredProducts.sort((a,b)=> a.price - b.price);
-}
+// Vælg foruddefineret søgning
+document.getElementById("predefined-search").addEventListener("change", filtrerProdukter);
 
-displayProducts(filteredProducts);
-};
+// Anvend filtre
+document.getElementById("apply-filters").addEventListener("click", function () {
 
-document.getElementById("search-input").addEventListener("input", 
-    filtrerProdukter);
-document.getElementById("predefined-search").addEventListener("change", 
-    filtrerProdukter);
-document.getElementById(`apply-filters`).addEventListener(`click`, function (){
     filtrerProdukter();
+
     closeFilterPanel();
+
 });

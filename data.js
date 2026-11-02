@@ -1,8 +1,10 @@
+"use strict";
 
 const products = [
     {
         id: 1,
         title: "Poker",
+        popularity: 5,
         description: "Et klassisk kortspil, hvor strategi, taktik og bluff spiller en vigtig rolle.",
         minPlayers: 5,
         maxPlayers: Infinity,
@@ -17,7 +19,8 @@ const products = [
     {
         id: 2,
         title: "Catan",
-        description: "Et strategispil, hvor spillerne bygger byer, handler med ressourcer og udvikler deres eget område.",
+        popularity: 1,
+        description: "Et strategispil, hvor spillerne bygger byer, handler med ressourcer og udvikler deres områder.",
         minPlayers: 4,
         maxPlayers: 4,
         gameType: "Strategi",
@@ -31,7 +34,8 @@ const products = [
     {
         id: 3,
         title: "Risk",
-        description: "Et strategisk brætspil, hvor spillerne kæmper om verdensherredømmet gennem taktik og erobring.",
+        popularity: 2,
+        description: "Et strategisk spil, hvor spillerne kæmper om verdensherredømmet gennem taktik og erobring.",
         minPlayers: 5,
         maxPlayers: Infinity,
         gameType: "Selskabsspil",
@@ -45,7 +49,8 @@ const products = [
     {
         id: 4,
         title: "Ludo",
-        description: "Et klassisk familiespil, hvor spillerne skal få deres brikker sikkert rundt på spillepladen.",
+        popularity: 5,
+        description: "Et klassisk selskabsspil, hvor spillerne skal få deres brikker sikkert rundt på spillepladen.",
         minPlayers: 4,
         maxPlayers: 4,
         gameType: "Selskabsspil",
@@ -59,7 +64,8 @@ const products = [
     {
         id: 5,
         title: "Bezzerwizzer",
-        description: "Et quizspil, hvor spillerne tester deres viden i forskellige kategorier og konkurrerer mod hinanden.",
+        popularity: 5,
+        description: "Et quizspil, hvor spillerne tester deres viden inden for forskellige kategorier.",
         minPlayers: 4,
         maxPlayers: 4,
         gameType: "Quizspil",
@@ -73,7 +79,8 @@ const products = [
     {
         id: 6,
         title: "Cards Against Humanity",
-        description: "Et humoristisk kortspil, hvor spillerne konkurrerer om at lave de sjoveste og mest overraskende kombinationer.",
+        popularity: 4,
+        description: "Et humoristisk kortspil, hvor spillerne konkurrerer om at lave de sjoveste kombinationer.",
         minPlayers: 5,
         maxPlayers: Infinity,
         gameType: "Kort",
@@ -87,7 +94,8 @@ const products = [
     {
         id: 7,
         title: "Uno",
-        description: "Et hurtigt og underholdende kortspil, hvor det gælder om at komme af med alle sine kort først.",
+        popularity: 2,
+        description: "Et underholdende kortspil, hvor det gælder om at komme af med alle sine kort først.",
         minPlayers: 5,
         maxPlayers: Infinity,
         gameType: "Kort",
@@ -101,7 +109,8 @@ const products = [
     {
         id: 8,
         title: "Kalaha",
-        description: "Et klassisk strategispil, hvor spillerne flytter kugler mellem små fordybninger på spillepladen.",
+        popularity: 1,
+        description: "Et strategispil, hvor spillerne flytter kugler rundt på spillepladen og forsøger at samle flest.",
         minPlayers: 2,
         maxPlayers: 2,
         gameType: "Strategi",
@@ -115,7 +124,8 @@ const products = [
     {
         id: 9,
         title: "Skak",
-        description: "Et klassisk strategispil, hvor spillerne bruger taktik og planlægning til at sætte modstanderens konge skakmat.",
+        popularity: 4,
+        description: "Et klassisk strategispil, hvor spillerne bruger taktik til at sætte modstanderens konge skakmat.",
         minPlayers: 2,
         maxPlayers: 2,
         gameType: "Strategi",
@@ -129,7 +139,8 @@ const products = [
     {
         id: 10,
         title: "500",
-        description: "Et kortspil, hvor spillerne skal samle stik og samarbejde om at opnå flest mulige point.",
+        popularity: 2,
+        description: "Et kortspil, hvor spillerne samler stik og forsøger at opnå flest mulige point.",
         minPlayers: 2,
         maxPlayers: Infinity,
         gameType: "Kort",
@@ -143,7 +154,8 @@ const products = [
     {
         id: 11,
         title: "Monopoly",
-        description: "Et klassisk brætspil, hvor spillerne køber grunde, bygger huse og forsøger at gøre modstanderne konkurs.",
+        popularity: 3,
+        description: "Et klassisk selskabsspil, hvor spillerne køber grunde, bygger huse og forsøger at gøre modstanderne konkurs.",
         minPlayers: 2,
         maxPlayers: Infinity,
         gameType: "Selskabsspil",
@@ -157,7 +169,8 @@ const products = [
     {
         id: 12,
         title: "Hitster",
-        description: "Et musikspil, hvor spillerne skal genkende sange og placere dem i den rigtige kronologiske rækkefølge.",
+        popularity: 5,
+        description: "Et musikspil, hvor spillerne skal genkende sange og placere dem i den rigtige rækkefølge.",
         minPlayers: 2,
         maxPlayers: Infinity,
         gameType: "Selskabsspil",
