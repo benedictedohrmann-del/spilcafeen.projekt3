@@ -145,6 +145,7 @@ closeFilter.addEventListener("click", closeFilterPanel);
 // Lukker ved klik på overlay
 overlay.addEventListener("click", closeFilterPanel);
     
+
 });
 
 
