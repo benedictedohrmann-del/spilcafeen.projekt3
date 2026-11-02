@@ -122,7 +122,7 @@ productDialog.addEventListener("click", function(event) {
 
     if (event.target === productDialog) {
         productDialog.close();
-    }
+    };
 const filterPanel = document.getElementById("filter-panel");
 const overlay = document.getElementById("overlay");
 const closeFilter = document.getElementById("close-filter");
