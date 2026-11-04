@@ -513,3 +513,108 @@ dialog::backdrop {
 .filter-content::-webkit-scrollbar-thumb:hover {
     background: var(--dark-gray);
 }
+
+
+/* Grundlæggende styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Hovedcontainer */
+.game-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+/* Vandret streg */
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    margin-bottom: 18px;
+}
+
+/* Knappernes placering */
+.game-categories {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+/* Fælles styling til knapper */
+.category {
+    height: 90px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 6px 6px 0 black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+
+    -webkit-text-stroke: 1.5px black;
+    paint-order: stroke fill;
+
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Ikoner */
+.icon {
+    font-size: 55px;
+    -webkit-text-stroke: 0;
+}
+
+/* Farver */
+.card-games {
+    background-color: #91d09e;
+}
+
+.strategy {
+    background-color: #f5e95e;
+}
+
+.party-games {
+    background-color: #ff4380;
+}
+
+.quiz-games {
+    background-color: #ff784b;
+}
+
+/* Hover-effekt */
+.category:hover {
+    transform: translateY(-4px);
+}
+
+/* Mobilvisning */
+@media (max-width: 600px) {
+
+    .game-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .category {
+        height: 75px;
+        font-size: 27px;
+    }
+
+    .icon {
+        font-size: 40px;
+    }
+}
