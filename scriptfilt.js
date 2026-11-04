@@ -1,4 +1,10 @@
+
 "use strict";
+
+// Valgt spiltype fra de fire knapper
+let valgtSpiltype = "Alle";
+
+
 function filtrerProdukter() {
 
     // Kopierer alle spil fra data.js
@@ -19,7 +25,15 @@ function filtrerProdukter() {
     }
 
 
-    // 2. KATEGORI / STEMNING
+    // 2. SPILTYPE
+    if (valgtSpiltype !== "Alle") {
+        filteredProducts = filteredProducts.filter(product =>
+            product.gameType === valgtSpiltype
+        );
+    }
+
+
+    // 3. KATEGORI / STEMNING
     const categories = Array.from(
         document.querySelectorAll('input[name="category"]:checked')
     ).map(cb => cb.value);
@@ -31,7 +45,7 @@ function filtrerProdukter() {
     }
 
 
-    // 3. ANTAL SPILLERE
+    // 4. ANTAL SPILLERE
     const minPlayersInput = document.getElementById("min-price").value;
     const maxPlayersInput = document.getElementById("max-price").value;
 
@@ -51,7 +65,7 @@ function filtrerProdukter() {
     }
 
 
-    // 4. SVÆRHEDSGRAD
+    // 5. SVÆRHEDSGRAD
     const rating = document.querySelector(
         'input[name="rating"]:checked'
     )?.value;
@@ -63,7 +77,7 @@ function filtrerProdukter() {
     }
 
 
-    // 5. VARIGHED
+    // 6. VARIGHED
     const durations = Array.from(
         document.querySelectorAll('input[name="duration"]:checked')
     ).map(cb => cb.value);
@@ -73,12 +87,10 @@ function filtrerProdukter() {
         filteredProducts = filteredProducts.filter(product =>
             durations.some(duration => {
 
-                // 60 minutter eller mere
                 if (duration === "60+ min") {
                     return product.duration >= 60;
                 }
 
-                // Opdel tidsintervallet
                 const [min, max] = duration
                     .replace(" min", "")
                     .replace(" Min", "")
@@ -92,11 +104,10 @@ function filtrerProdukter() {
     }
 
 
-    // 6. FORUDDEFINEREDE VALG
+    // 7. FORUDDEFINEREDE VALG
     const sorterEfter = document.getElementById("predefined-search").value;
 
     if (sorterEfter === "2-3 personer") {
-
         filteredProducts = filteredProducts.filter(product =>
             product.maxPlayers >= 2 &&
             product.minPlayers <= 3
@@ -104,14 +115,13 @@ function filtrerProdukter() {
     }
 
     if (sorterEfter === "3+ personer") {
-
         filteredProducts = filteredProducts.filter(product =>
             product.maxPlayers >= 3
         );
     }
 
 
-    // 7. MEST POPULÆRE
+    // 8. MEST POPULÆRE
     if (sorterEfter === "populaere") {
         filteredProducts.sort((a, b) =>
             b.popularity - a.popularity
@@ -125,7 +135,25 @@ function filtrerProdukter() {
 }
 
 
-// EVENT LISTENERS
+// 9. KATEGORIKNAPPER
+const categoryButtons = document.querySelectorAll(".category-button");
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        // Vælg spiltypen fra knappen
+        valgtSpiltype = this.dataset.gameType;
+
+        // Filtrer spillene
+        filtrerProdukter();
+
+    });
+
+});
+
+
+// 10. EVENT LISTENERS
 
 // Søg efter spil
 document.getElementById("search-input").addEventListener("input", filtrerProdukter);
@@ -138,4 +166,5 @@ document.getElementById("apply-filters").addEventListener("click", function() {
     filtrerProdukter();
     closeFilterPanel();
 });
+
 
