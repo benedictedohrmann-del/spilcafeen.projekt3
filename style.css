@@ -20,10 +20,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'instrument sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-gray);
+    background-color: #B9D5DC;
 }
 
 .container {
@@ -523,7 +523,7 @@ dialog::backdrop {
 }
 
 body {
-    background-color: #f2f2f5;
+    background-color: #B9D5DC;
     font-family: instrument sans-serif;
 }
 
