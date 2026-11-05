@@ -31,8 +31,28 @@ function displayProducts(productsToDisplay) {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
 
-        productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="product-image">
+   productCard.innerHTML = `
+    <div class="product-image-container">
+
+        <img src="${product.image}" 
+             alt="${product.title}" 
+             class="product-image">
+
+       <div class="language-buttons">
+
+    <button type="button" class="language-button" aria-label="English">
+        <img src="img/eng-flag.png" alt="English">
+    </button>
+
+    <button type="button" class="language-button" aria-label="Dansk">
+        <img src="img/dansk-flag.png" alt="Dansk">
+    </button>
+
+</div>
+
+    </div>
+
+    <div class="product-info">
 
             <div class="product-info">
                 <h3 class="product-title">${product.title}</h3>
