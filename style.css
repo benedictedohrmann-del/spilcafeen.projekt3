@@ -735,5 +735,38 @@ header {
     .section-title {
         font-size: 3rem;
     }
+
+    /* Spilkort */
+.product-card {
+    position: relative;
+    overflow: visible;
+}
+
+/* Billedområde */
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fælles styling til spiltype-ikoner */
+.game-type-icon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    z-index: 5;
+}
+
+/* Øverste venstre hjørne */
+.icon-top {
+    top: -8px;
+    left: -8px;
+}
+
+/* Nederste højre hjørne */
+.icon-bottom {
+    bottom: -8px;
+    right: -8px;
+}
 }
 
