@@ -1,320 +1,430 @@
 
+
 <!DOCTYPE html>
 <html lang="da">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spil Cafe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spil Cafe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-        <div class="container">
+    <div class="container">
 
+        <!-- HEADER -->
         <header>
             <h1>Spil Cafeen</h1>
         </header>
 
-<main>
+        <main>
 
-<!-- SØGNING OG FILTERKNAP -->
-        <div class="search-container">
-
-            <input
-                type="search"
-                id="search-input"
-                placeholder="Søg efter spil..."
-                class="search-input"
-                >
-
-            <select id="predefined-search" class="predefined-select">
-                <option value="">---- Sorter efter ----</option>
-                <option value="populaere">Mest populære</option>
-                <option value="populaere">Mindst populære</option>
-            </select>
-
-            <button type="button" id="filter-toggle" class="filter-button">
-                <span>🔍 Filtrer</span>
-            </button>
-
-        </div>
-
-
-<!-- FILTERPANEL -->
-        <div id="filter-panel" class="filter-panel">
-
-            <div class="filter-header">
-            <h2>Filtrer spil</h2>
-
-            <button type="button" id="close-filter" class="close-button">
-            &times;
-            </button>
-
-        </div>
-
-
-        <main class="game-container">
-
-            <div class="line"></div>
-            
-            <section class="game-categories">
-
-            <button class="category card-games">
-                
-            <span>Kortspil</span>
-                
-            <span class="icon">♠</span>
-            
-            </button>
-
-            
-            <button class="category strategy">
-               
-            <span>Strategi</span>
-                
-            <span class="icon">⚙</span>
-           
-            </button>
-
-            
-            <button class="category party-games">
-               
-            <span>Selskabsspil</span>
-               
-            <span class="icon">🎲</span>
-           
-            </button>
-
-            
-            <button class="category quiz-games">
-               
-            <span>Quizspil</span>
-                
-            <span class="icon">❔</span>
-            
-            </button>
-
-        
-            </section>
-
-
-</main>
-            <div class="filter-content">
-
-<!-- KATEGORI -->
-
-            <div class="filter-group">
-
-            <label class="filter-label">Kategori</label>
-
-            <div class="checkbox-group">
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="category" value="Kold sved">
-                <img src="img/hoved.png" alt="">
-                        Kold sved 
-            </label>
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="category" value="Hjernekraft">
-                <img src="img/hjerne.png" alt="">
-                        Hjernekraft
-            </label>
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="category" value="Legende">
-                <img src="img/tryllestav.png" alt="">
-                        Legende
-            </label>
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="category" value="Spænding">
-                <img src="img/taarn.png" alt="">
-                        Spænding
-            </label>
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="category" value="Fordybelse">
-                <img src="img/dartskiven.png" alt="">
-                        Fordybelse
-            </label>
-
-            </div>
-            </div>
-
-
-    <!-- ANTAL SPILLERE -->
-            <div class="filter-group">
-
-            <label class="filter-label">Antal spillere</label>
-
-            <div class="price-range">
+            <!-- SØGNING OG FILTERKNAP -->
+            <div class="search-container">
 
                 <input
-                type="number"
-                id="min-price"
-                placeholder="Min. spillere"
-                class="price-input"
-                min="1"
+                    type="search"
+                    id="search-input"
+                    placeholder="Søg efter spil..."
+                    class="search-input"
+                    aria-label="Søg efter spil"
                 >
 
-            <span class="price-separator">-</span>
-
-                <input
-                type="number"
-                id="max-price"
-                placeholder="Max. spillere"
-                class="price-input"
-                min="1"
+                <select
+                    id="predefined-search"
+                    class="predefined-select"
+                    aria-label="Sorter spil"
                 >
+                    <option value="">---- Sorter efter ----</option>
+                    <option value="populaere">Mest populære</option>
+                    <option value="mindst-populaere">Mindst populære</option>
+                </select>
+
+                <button
+                    type="button"
+                    id="filter-toggle"
+                    class="filter-button"
+                >
+                    <span>🔍 Filtrer</span>
+                </button>
 
             </div>
+
+
+            <!-- FILTERPANEL -->
+            <div id="filter-panel" class="filter-panel">
+
+                <div class="filter-header">
+
+                    <h2>Filtrer spil</h2>
+
+                    <button
+                        type="button"
+                        id="close-filter"
+                        class="close-button"
+                        aria-label="Luk filter"
+                    >
+                        &times;
+                    </button>
+
+                </div>
+
+
+                <!-- SPILTYPEKNAPPER -->
+                <div class="game-container">
+
+                    <div class="line"></div>
+
+                    <div class="game-categories">
+
+                        <!-- KORTSPIL -->
+                        <button
+                            type="button"
+                            class="category category-button card-games"
+                            data-game-type="Kortspil"
+                        >
+                            <span>Kortspil</span>
+                            <span class="icon">♠</span>
+                        </button>
+
+
+                        <!-- STRATEGI -->
+                        <button
+                            type="button"
+                            class="category category-button strategy"
+                            data-game-type="Strategi"
+                        >
+                            <span>Strategi</span>
+                            <span class="icon">⚙</span>
+                        </button>
+
+
+                        <!-- SELSKABSSPIL -->
+                        <button
+                            type="button"
+                            class="category category-button party-games"
+                            data-game-type="Selskabsspil"
+                        >
+                            <span>Selskabsspil</span>
+                            <span class="icon">🎲</span>
+                        </button>
+
+
+                        <!-- QUIZSPIL -->
+                        <button
+                            type="button"
+                            class="category category-button quiz-games"
+                            data-game-type="Quizspil"
+                        >
+                            <span>Quizspil</span>
+                            <span class="icon">❔</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FILTERINDHOLD -->
+                <div class="filter-content">
+
+                    <!-- KATEGORI -->
+                    <div class="filter-group">
+
+                        <div class="filter-label">Kategori</div>
+
+                        <div class="checkbox-group">
+
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Kold sved"
+                                >
+                                <img src="img/hoved.png" alt="">
+                                Kold sved
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Hjernekraft"
+                                >
+                                <img src="img/hjerne.png" alt="">
+                                Hjernekraft
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Legende"
+                                >
+                                <img src="img/tryllestav.png" alt="">
+                                Legende
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Spænding"
+                                >
+                                <img src="img/taarn.png" alt="">
+                                Spænding
+                            </label>
+
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="category"
+                                    value="Fordybelse"
+                                >
+                                <img src="img/dartskiven.png" alt="">
+                                Fordybelse
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                    <!-- ANTAL SPILLERE -->
+                    <div class="filter-group">
+
+                        <div class="filter-label">Antal spillere</div>
+
+                        <div class="price-range">
+
+                            <input
+                                type="number"
+                                id="min-price"
+                                placeholder="Min. spillere"
+                                class="price-input"
+                                min="1"
+                                aria-label="Minimum antal spillere"
+                            >
+
+                            <span class="price-separator">-</span>
+
+                            <input
+                                type="number"
+                                id="max-price"
+                                placeholder="Max. spillere"
+                                class="price-input"
+                                min="1"
+                                aria-label="Maksimum antal spillere"
+                            >
+
+                        </div>
+                    </div>
+
+
+                    <!-- SVÆRHEDSGRAD -->
+                    <div class="filter-group">
+
+                        <div class="filter-label">Sværhedsgrad</div>
+
+                        <div class="rating-group">
+
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="5">
+                                ★★★★★
+                            </label>
+
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="4">
+                                ★★★★
+                            </label>
+
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="3">
+                                ★★★
+                            </label>
+
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="2">
+                                ★★
+                            </label>
+
+                            <label class="rating-label">
+                                <input type="radio" name="rating" value="1">
+                                ★
+                            </label>
+
+                        </div>
+                    </div>
+
+
+                    <!-- VARIGHED -->
+                    <div class="filter-group">
+
+                        <div class="filter-label">Varighed</div>
+
+                        <div class="duration-group">
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="5-10 min"
+                                >
+                                5-10 min
+                            </label>
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="10-20 min"
+                                >
+                                10-20 min
+                            </label>
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="20-30 min"
+                                >
+                                20-30 min
+                            </label>
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="30-40 min"
+                                >
+                                30-40 min
+                            </label>
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="40-60 min"
+                                >
+                                40-60 min
+                            </label>
+
+                            <label class="duration-label">
+                                <input
+                                    type="checkbox"
+                                    name="duration"
+                                    value="60+ min"
+                                >
+                                60+ min
+                            </label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- FILTERKNAPPER -->
+                <div class="filter-footer">
+
+                    <button
+                        type="button"
+                        id="reset-filters"
+                        class="reset-button"
+                    >
+                        Nulstil alle filtre
+                    </button>
+
+                    <button
+                        type="button"
+                        id="apply-filters"
+                        class="apply-button"
+                    >
+                        Find et spil
+                    </button>
+
+                </div>
+
             </div>
 
 
-<!-- SVÆRHEDSGRAD -->
-            <div class="filter-group">
-
-            <label class="filter-label">Sværhedsgrad</label>
-
-            <div class="rating-group">
-
-            <label class="rating-label">
-            <input type="radio" name="rating" value="5">
-                ★★★★★
-            </label>
-
-            <label class="rating-label">
-            <input type="radio" name="rating" value="4">
-                ★★★★
-            </label>
-
-            <label class="rating-label">
-            <input type="radio" name="rating" value="3">
-                ★★★
-            </label>
-
-            <label class="rating-label">
-            <input type="radio" name="rating" value="2">
-                ★★
-            </label>
-
-            <label class="rating-label">
-            <input type="radio" name="rating" value="1">
-                ★
-            </label>
-
-            </div>
-            </div>
-
-
-    <!-- VARIGHED -->
-            <div class="filter-group">
-
-            <label class="filter-label">Varighed</label>
-
-            <div class="duration-group">
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="5-10 min">
-                    5-10 min
-                </label>
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="10-20 min">
-                    10-20 min
-            </label>
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="20-30 min">
-                20-30 min
-            </label>
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="30-40 min">
-                30-40 min
-            </label>
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="40-60 Min">
-                40-60 min
-            </label>
-
-            <label class="duration-label">
-                <input type="checkbox" name="duration" value="60+ min">
-                60+ min
-            </label>
-
-            </div>
-            </div>
-            </div>
-
-
-    <!-- FILTERKNAP -->
-            <div class="filter-footer">
-
-            <button type="button" id="apply-filters" class="apply-button">
-                Find et spil
-            </button>
-
-            </div>
-            </div>
-
-<!-- OVERLAY -->
+            <!-- OVERLAY -->
             <div id="overlay" class="overlay"></div>
 
-<!-- NYHEDER -->
+
+            <!-- NYHEDER -->
             <h2 class="section-title">Nyheder</h2>
 
-<!-- SPILKORT -->
-            <div id="products-container" class="products-container">
-            </div>
 
-</main>
+            <!-- SPILKORT -->
+            <div
+                id="products-container"
+                class="products-container"
+            ></div>
+
+        </main>
 
 
-            <footer>
+        <!-- FOOTER -->
+        <footer>
             <p>&copy; 2026 Spil Cafe</p>
-            </footer>
+        </footer>
 
-            </div>
+    </div>
 
-<!-- DIALOGBOKS -->
-            <dialog id="product-dialog">
 
-            <article class="dialog-content">
+    <!-- DIALOGBOKS -->
+    <dialog id="product-dialog">
 
-            <img id="dialog-image" src="" alt="" class="product-image">
+        <article class="dialog-content">
 
-            <h2 id="dialog-title"></h2>
+            <img
+                id="dialog-image"
+                alt="Billede af spil"
+                class="product-image"
+            >
+
+            <h2 id="dialog-title">Spilinformation</h2>
 
             <p id="dialog-description"></p>
 
             <div class="product-meta">
 
-                <span id="dialog-price" class="product-price"></span>
+                <span
+                    id="dialog-price"
+                    class="product-price"
+                ></span>
 
-                <span id="dialog-category" class="product-category"></span>
+                <span
+                    id="dialog-category"
+                    class="product-category"
+                ></span>
 
             </div>
 
-            <div id="dialog-rating" class="product-rating"></div>
+            <div
+                id="dialog-rating"
+                class="product-rating"
+            ></div>
 
-            <menu class="dialog-actions">
+            <div class="dialog-actions">
 
-            <button type="button" id="dialog-close" value="cancel">
-                Luk
-            </button>
-            </menu>
+                <button
+                    type="button"
+                    id="dialog-close"
+                >
+                    Luk
+                </button>
 
-            </article>
+            </div>
 
-            </dialog>
+        </article>
+
+    </dialog>
 
 
-<!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
     <script src="data.js"></script>
     <script src="scriptui.js"></script>
     <script src="scriptfilt.js"></script>
