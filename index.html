@@ -17,203 +17,197 @@
             <h1>Spil Cafeen</h1>
         </header>
 
-        
+<main>
 
-        <main>
+<!-- SØGNING OG FILTERKNAP -->
+        <div class="search-container">
 
-            <!-- SØGNING OG FILTERKNAP -->
-            <div class="search-container">
-
-                <input
-                    type="search"
-                    id="search-input"
-                    placeholder="Søg efter spil..."
-                    class="search-input"
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Søg efter spil..."
+                class="search-input"
                 >
 
-                <select id="predefined-search" class="predefined-select">
-                    <option value="">---- Sorter efter ----</option>
-                    <option value="populaere">Mest populære</option>
-                    <option value="populaere">Mindst populære</option>
-                </select>
+            <select id="predefined-search" class="predefined-select">
+                <option value="">---- Sorter efter ----</option>
+                <option value="populaere">Mest populære</option>
+                <option value="populaere">Mindst populære</option>
+            </select>
 
-                <button type="button" id="filter-toggle" class="filter-button">
-                    <span>🔍 Filtrer</span>
-                </button>
+            <button type="button" id="filter-toggle" class="filter-button">
+                <span>🔍 Filtrer</span>
+            </button>
 
+        </div>
+
+
+<!-- FILTERPANEL -->
+        <div id="filter-panel" class="filter-panel">
+
+            <div class="filter-header">
+            <h2>Filtrer spil</h2>
+
+            <button type="button" id="close-filter" class="close-button">
+            &times;
+            </button>
+
+        </div>
+
+
+        <main class="game-container">
+
+            <div class="line"></div>
+            
+            <section class="game-categories">
+
+            <button class="category card-games">
+                
+            <span>Kortspil</span>
+                
+            <span class="icon">♠</span>
+            
+            </button>
+
+            
+            <button class="category strategy">
+               
+            <span>Strategi</span>
+                
+            <span class="icon">⚙</span>
+           
+            </button>
+
+            
+            <button class="category party-games">
+               
+            <span>Selskabsspil</span>
+               
+            <span class="icon">🎲</span>
+           
+            </button>
+
+            
+            <button class="category quiz-games">
+               
+            <span>Quizspil</span>
+                
+            <span class="icon">❔</span>
+            
+            </button>
+
+        
+            </section>
+
+
+</main>
+            <div class="filter-content">
+
+<!-- KATEGORI -->
+
+            <div class="filter-group">
+
+            <label class="filter-label">Kategori</label>
+
+            <div class="checkbox-group">
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="category" value="Kold sved">
+                <img src="img/hoved.png" alt="">
+                        Kold sved 
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="category" value="Hjernekraft">
+                <img src="img/hjerne.png" alt="">
+                        Hjernekraft
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="category" value="Legende">
+                <img src="img/tryllestav.png" alt="">
+                        Legende
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="category" value="Spænding">
+                <img src="img/taarn.png" alt="">
+                        Spænding
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="category" value="Fordybelse">
+                <img src="img/dartskiven.png" alt="">
+                        Fordybelse
+            </label>
+
+            </div>
             </div>
 
 
-            <!-- FILTERPANEL -->
-            <div id="filter-panel" class="filter-panel">
+    <!-- ANTAL SPILLERE -->
+            <div class="filter-group">
 
-                <div class="filter-header">
-                    <h2>Filtrer spil</h2>
+            <label class="filter-label">Antal spillere</label>
 
-                    <button type="button" id="close-filter" class="close-button">
-                        &times;
-                    </button>
-                </div>
+            <div class="price-range">
 
+                <input
+                type="number"
+                id="min-price"
+                placeholder="Min. spillere"
+                class="price-input"
+                min="1"
+                >
 
-                <main class="game-container">
+            <span class="price-separator">-</span>
 
-       
-                    <div class="line"></div>
+                <input
+                type="number"
+                id="max-price"
+                placeholder="Max. spillere"
+                class="price-input"
+                min="1"
+                >
 
-       
-                    <section class="game-categories">
-
-          
-                        <button class="category card-games">
-                
-                            <span>Kortspil</span>
-                
-                            <span class="icon">♠</span>
-            
-                        </button>
-
-            
-                        <button class="category strategy">
-               
-                            <span>Strategi</span>
-                
-                            <span class="icon">⚙</span>
-           
-                        </button>
-
-            
-                        <button class="category party-games">
-               
-                            <span>Selskabsspil</span>
-               
-                            <span class="icon">🎲</span>
-           
-                        </button>
-
-            
-                        <button class="category quiz-games">
-               
-                            <span>Quizspil</span>
-                
-                            <span class="icon">❔</span>
-            
-                        </button>
-
-        
-                    </section>
+            </div>
+            </div>
 
 
+<!-- SVÆRHEDSGRAD -->
+            <div class="filter-group">
 
+            <label class="filter-label">Sværhedsgrad</label>
 
-   
-                </main>
-                <div class="filter-content">
+            <div class="rating-group">
 
-                    <!-- KATEGORI -->
-                    <div class="filter-group">
+            <label class="rating-label">
+            <input type="radio" name="rating" value="5">
+                ★★★★★
+            </label>
 
-                        <label class="filter-label">Kategori</label>
+            <label class="rating-label">
+            <input type="radio" name="rating" value="4">
+                ★★★★
+            </label>
 
-                        <div class="checkbox-group">
+            <label class="rating-label">
+            <input type="radio" name="rating" value="3">
+                ★★★
+            </label>
 
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Kold sved">
-                                <img src="img/hoved.png" alt="">
-                                Kold sved 
-                            </label>
+            <label class="rating-label">
+            <input type="radio" name="rating" value="2">
+                ★★
+            </label>
 
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Hjernekraft">
-                                <img src="img/hjerne.png" alt="">
-                                Hjernekraft
-                            </label>
+            <label class="rating-label">
+            <input type="radio" name="rating" value="1">
+                ★
+            </label>
 
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Legende">
-                                <img src="img/tryllestav.png" alt="">
-                                Legende
-                            </label>
-
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Spænding">
-                                <img src="img/taarn.png" alt="">
-                                Spænding
-                            </label>
-
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="category" value="Fordybelse">
-                                <img src="img/dartskiven.png" alt="">
-                                Fordybelse
-                            </label>
-
-                        </div>
-                    </div>
-
-
-                    <!-- ANTAL SPILLERE -->
-                    <div class="filter-group">
-
-                        <label class="filter-label">Antal spillere</label>
-
-                        <div class="price-range">
-
-                            <input
-                                type="number"
-                                id="min-price"
-                                placeholder="Min. spillere"
-                                class="price-input"
-                                min="1"
-                            >
-
-                            <span class="price-separator">-</span>
-
-                            <input
-                                type="number"
-                                id="max-price"
-                                placeholder="Max. spillere"
-                                class="price-input"
-                                min="1"
-                            >
-
-                        </div>
-                    </div>
-
-
-                    <!-- SVÆRHEDSGRAD -->
-                    <div class="filter-group">
-
-                        <label class="filter-label">Sværhedsgrad</label>
-
-                        <div class="rating-group">
-
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="5">
-                                ★★★★★
-                            </label>
-
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="4">
-                                ★★★★
-                            </label>
-
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="3">
-                                ★★★
-                            </label>
-
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="2">
-                                ★★
-                            </label>
-
-                            <label class="rating-label">
-                                <input type="radio" name="rating" value="1">
-                                ★
-                            </label>
-
-                        </div>
-                    </div>
+            </div>
+            </div>
 
 
                     <!-- VARIGHED -->
@@ -277,7 +271,7 @@
 
             <!-- NYHEDER -->
             <h2 class="section-title">Nyheder</h2>
-            
+
             <!-- SPILKORT -->
             <div id="products-container" class="products-container">
             </div>
