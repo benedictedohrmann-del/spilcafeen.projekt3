@@ -93,32 +93,25 @@ function displayProducts(productsToDisplay) {
                     >
                 ` : ""}
 
-                <!-- FLAG -->
-                <div class="language-buttons">
-
-                    <button
-                        type="button"
-                        class="language-button"
-                        aria-label="English"
-                    >
-                        <img src="img/eng-flag.png" alt="English">
-                    </button>
-
-                    <button
-                        type="button"
-                        class="language-button"
-                        aria-label="Dansk"
-                    >
-                        <img src="img/dansk-flag.png" alt="Dansk">
-                    </button>
-
-                </div>
-
-            </div>
+        </div>
 
 
             <!-- INFORMATION OM SPILLET -->
             <div class="product-info">
+
+            <!-- FLAG I HØJRE SIDE -->
+    
+            <div class="language-buttons">
+
+            <button type="button" class="language-button" aria-label="English">
+            <img src="img/eng-flag.png" alt="English">
+        
+        </button>
+
+            <button type="button" class="language-button" aria-label="Dansk">
+            <img src="img/dansk-flag.png" alt="Dansk">
+
+        </button>
 
                 <h3 class="product-title">
                     ${product.title}
@@ -176,6 +169,8 @@ function displayProducts(productsToDisplay) {
 
     });
 }
+
+
 
 
 // ---------------------------------
