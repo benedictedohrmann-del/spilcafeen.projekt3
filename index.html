@@ -3,15 +3,15 @@
 <html lang="da">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spil Cafe</title>
-    <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spil Cafe</title>
+        <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+        <div class="container">
 
         <header>
             <h1>Spil Cafeen</h1>
@@ -210,86 +210,81 @@
             </div>
 
 
-                    <!-- VARIGHED -->
-                    <div class="filter-group">
+    <!-- VARIGHED -->
+            <div class="filter-group">
 
-                        <label class="filter-label">Varighed</label>
+            <label class="filter-label">Varighed</label>
 
-                        <div class="duration-group">
+            <div class="duration-group">
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="5-10 min">
-                                5-10 min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="5-10 min">
+                    5-10 min
+                </label>
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="10-20 min">
-                                10-20 min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="10-20 min">
+                    10-20 min
+            </label>
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="20-30 min">
-                                20-30 min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="20-30 min">
+                20-30 min
+            </label>
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="30-40 min">
-                                30-40 min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="30-40 min">
+                30-40 min
+            </label>
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="40-60 Min">
-                                40-60 min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="40-60 Min">
+                40-60 min
+            </label>
 
-                            <label class="duration-label">
-                                <input type="checkbox" name="duration" value="60+ min">
-                                60+ min
-                            </label>
+            <label class="duration-label">
+                <input type="checkbox" name="duration" value="60+ min">
+                60+ min
+            </label>
 
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- FILTERKNAP -->
-                <div class="filter-footer">
-
-                    <button type="button" id="apply-filters" class="apply-button">
-                        Find et spil
-                    </button>
-
-                </div>
-
+            </div>
+            </div>
             </div>
 
 
-            <!-- OVERLAY -->
+    <!-- FILTERKNAP -->
+            <div class="filter-footer">
+
+            <button type="button" id="apply-filters" class="apply-button">
+                Find et spil
+            </button>
+
+            </div>
+            </div>
+
+<!-- OVERLAY -->
             <div id="overlay" class="overlay"></div>
 
-
-            <!-- NYHEDER -->
+<!-- NYHEDER -->
             <h2 class="section-title">Nyheder</h2>
 
-            <!-- SPILKORT -->
+<!-- SPILKORT -->
             <div id="products-container" class="products-container">
             </div>
 
-        </main>
+</main>
 
 
-        <footer>
+            <footer>
             <p>&copy; 2026 Spil Cafe</p>
-        </footer>
+            </footer>
 
-    </div>
+            </div>
 
+<!-- DIALOGBOKS -->
+            <dialog id="product-dialog">
 
-    <!-- DIALOGBOKS -->
-    <dialog id="product-dialog">
-
-        <article class="dialog-content">
+            <article class="dialog-content">
 
             <img id="dialog-image" src="" alt="" class="product-image">
 
@@ -309,18 +304,17 @@
 
             <menu class="dialog-actions">
 
-                <button type="button" id="dialog-close" value="cancel">
-                    Luk
-                </button>
-
+            <button type="button" id="dialog-close" value="cancel">
+                Luk
+            </button>
             </menu>
 
-        </article>
+            </article>
 
-    </dialog>
+            </dialog>
 
 
-    <!-- JAVASCRIPT -->
+<!-- JAVASCRIPT -->
     <script src="data.js"></script>
     <script src="scriptui.js"></script>
     <script src="scriptfilt.js"></script>

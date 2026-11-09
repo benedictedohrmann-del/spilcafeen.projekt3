@@ -22,36 +22,26 @@ const overlay = document.getElementById("overlay");
 const closeFilter = document.getElementById("close-filter");
 
 
-// ---------------------------------
-// IKONER TIL SPILTYPER
-// ---------------------------------
 
-const gameTypeIcons = {
+// IKONER TIL SPILTYPER
+    const gameTypeIcons = {
     "Strategi": "img/strategi.png",
     "Kortspil": "img/kortspil.png",
     "Selskabsspil": "img/selskabsspil.png",
     "Quizspil": "img/quizspil.png"
-};
+    };
 
-
-// ---------------------------------
 // IKONER TIL KATEGORIER
-// ---------------------------------
-
-const categoryIcons = {
+    const categoryIcons = {
     "Fordybelse": "img/dartskiven.png",
     "Hjernekraft": "img/hjerne.png",
     "Legende": "img/tryllestav.png",
     "Spænding": "img/taarn.png",
     "Kold sved": "img/hoved.png"
-};
+    };
 
-
-// ---------------------------------
 // VISER SPILLENE
-// ---------------------------------
-
-function displayProducts(productsToDisplay) {
+    function displayProducts(productsToDisplay) {
 
     productsContainer.innerHTML = "";
 
@@ -74,36 +64,35 @@ function displayProducts(productsToDisplay) {
 
         productCard.innerHTML = `
 
-            <!-- BILLEDOMRÅDE -->
-            <div class="product-image-container">
+<!-- BILLEDOMRÅDE -->
+        <div class="product-image-container">
 
-                <!-- Spillets billede -->
-                <img
-                    src="${product.image}"
-                    alt="${product.title}"
-                    class="product-image"
+<!-- Spillets billede -->
+        <img
+            src="${product.image}"
+            alt="${product.title}"
+            class="product-image"
+            >
+
+<!-- Spiltype ikon øverst til venstre -->
+            ${gameIcon ? `
+            <img
+                src="${gameIcon}"
+                class="game-type-icon icon-top"
+                alt="${product.gameType}"
                 >
-
-                <!-- Spiltype ikon øverst til venstre -->
-                ${gameIcon ? `
-                    <img
-                        src="${gameIcon}"
-                        class="game-type-icon icon-top"
-                        alt="${product.gameType}"
-                    >
                 ` : ""}
-
         </div>
 
 
-            <!-- INFORMATION OM SPILLET -->
-            <div class="product-info">
+<!-- INFORMATION OM SPILLET -->
+        <div class="product-info">
 
-            <!-- FLAG I HØJRE SIDE -->
+<!-- FLAG I HØJRE SIDE -->
     
-            <div class="language-buttons">
+        <div class="language-buttons">
 
-            <button type="button" class="language-button" aria-label="English">
+        <button type="button" class="language-button" aria-label="English">
             <img src="img/eng-flag.png" alt="English">
         
         </button>
@@ -113,48 +102,48 @@ function displayProducts(productsToDisplay) {
 
         </button>
 
-                <h3 class="product-title">
-                    ${product.title}
-                </h3>
+            <h3 class="product-title">
+                ${product.title}
+            </h3>
 
-                <p class="product-description">
-                    ${product.description}
-                </p>
+            <p class="product-description">
+                ${product.description}
+            </p>
 
-                <!-- KATEGORI OG BEDØMMELSE -->
-                <div class="product-meta">
+<!-- KATEGORI OG BEDØMMELSE -->
+            <div class="product-meta">
 
-                    <span class="product-category">
+            <span class="product-category">
 
-                        ${categoryIcon ? `
-                            <img
-                                src="${categoryIcon}"
-                                alt=""
-                                class="category-icon"
-                            >
-                        ` : ""}
+            ${categoryIcon ? `
+                <img
+                    src="${categoryIcon}"
+                    alt=""
+                    class="category-icon"
+                    >
+                    ` : ""}
 
-                        ${product.category}
+                ${product.category}
 
-                    </span>
+            </span>
 
-                    <span class="product-rating">
-                        ⭐ ${product.rating}/5
-                    </span>
+            <span class="product-rating">
+                ⭐ ${product.rating}/5
+            </span>
 
-                </div>
+            </div>
 
-                <!-- SE MERE KNAP -->
-                <button
-                    class="product-button show-product"
-                    data-id="${product.id}"
+<!-- SE MERE KNAP -->
+            <button
+                class="product-button show-product"
+                data-id="${product.id}"
                 >
-                    Se mere
+                Se mere
                 </button>
 
             </div>
 
-            <!-- Spiltype ikon nederst til højre -->
+<!-- Spiltype ikon nederst til højre -->
             ${gameIcon ? `
                 <img
                     src="${gameIcon}"
@@ -171,11 +160,7 @@ function displayProducts(productsToDisplay) {
 }
 
 
-
-
-// ---------------------------------
 // VISER DIALOG MED SPILINFORMATION
-// ---------------------------------
 
 function showProductDialog(productId) {
 
@@ -196,9 +181,7 @@ function showProductDialog(productId) {
 }
 
 
-// ---------------------------------
 // KLIK PÅ SE MERE
-// ---------------------------------
 
 productsContainer.addEventListener("click", function(event) {
 
@@ -213,10 +196,7 @@ productsContainer.addEventListener("click", function(event) {
 
 });
 
-
-// ---------------------------------
 // LUK DIALOGBOKS
-// ---------------------------------
 
 dialogClose.addEventListener("click", function() {
     productDialog.close();
@@ -224,6 +204,7 @@ dialogClose.addEventListener("click", function() {
 
 
 // Lukker dialog ved klik udenfor
+
 productDialog.addEventListener("click", function(event) {
 
     if (event.target === productDialog) {
@@ -233,9 +214,7 @@ productDialog.addEventListener("click", function(event) {
 });
 
 
-// ---------------------------------
 // FILTERPANEL
-// ---------------------------------
 
 // Åbner filterpanelet
 filterToggle.addEventListener("click", function() {
@@ -254,17 +233,11 @@ function closeFilterPanel() {
 
 }
 
-
 // Lukker med krydset
 closeFilter.addEventListener("click", closeFilterPanel);
-
 
 // Lukker ved klik på overlay
 overlay.addEventListener("click", closeFilterPanel);
 
-
-// ---------------------------------
 // VISER ALLE SPIL VED OPSTART
-// ---------------------------------
-
 displayProducts(products);

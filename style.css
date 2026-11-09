@@ -1,7 +1,5 @@
 
-/* =====================================
-   1. RESET OG GRUNDLÆGGENDE STYLING
-===================================== */
+/* RESET OG GRUNDLÆGGENDE STYLING*/
 
 * {
     margin: 0;
@@ -31,9 +29,7 @@ body {
 }
 
 
-/* =====================================
-   2. HOVEDCONTAINER
-===================================== */
+/* HOVEDCONTAINER*/
 
 .container {
     max-width: 920px;
@@ -45,9 +41,7 @@ body {
 }
 
 
-/* =====================================
-   3. HEADER
-===================================== */
+/* HEADER*/
 
 header {
     text-align: center;
@@ -62,9 +56,7 @@ header h1 {
 }
 
 
-/* =====================================
-   4. SØGNING OG FILTER
-===================================== */
+/* SØGNING OG FILTER */
 
 .search-container {
     display: grid;
@@ -162,9 +154,7 @@ header h1 {
 }
 
 
-/* =====================================
-   5. FILTERPANEL
-===================================== */
+/* FILTERPANEL*/
 
 .filter-panel {
     position: fixed;
@@ -263,9 +253,7 @@ header h1 {
 }
 
 
-/* =====================================
-   6. CHECKBOX OG KATEGORIER
-===================================== */
+/* CHECKBOX OG KATEGORIER*/
 
 .checkbox-group,
 .color-group {
@@ -307,9 +295,7 @@ header h1 {
 }
 
 
-/* =====================================
-   7. ANTAL SPILLERE
-===================================== */
+/* ANTAL SPILLERE*/
 
 .price-range {
     display: flex;
@@ -340,9 +326,7 @@ header h1 {
 }
 
 
-/* =====================================
-   8. SVÆRHEDSGRAD
-===================================== */
+/* SVÆRHEDSGRAD*/
 
 .rating-group {
     display: flex;
@@ -374,9 +358,7 @@ header h1 {
 }
 
 
-/* =====================================
-   9. VARIGHED
-===================================== */
+/* VARIGHED*/
 
 .duration-group {
     display: flex;
@@ -408,9 +390,7 @@ header h1 {
 }
 
 
-/* =====================================
-   10. FILTER FOOTER
-===================================== */
+/* 10. FILTER FOOTER*/
 
 .filter-footer {
     padding: 20px;
@@ -446,9 +426,7 @@ header h1 {
 }
 
 
-/* =====================================
-   11. OVERLAY
-===================================== */
+/*OVERLAY*/
 
 .overlay {
     position: fixed;
@@ -476,9 +454,7 @@ header h1 {
 }
 
 
-/* =====================================
-   12. NYHEDER
-===================================== */
+/* NYHEDER */
 
 .section-title {
     font-size: 5rem;
@@ -492,9 +468,7 @@ header h1 {
 }
 
 
-/* =====================================
-   13. SPILKORT
-===================================== */
+/* SPILKORT*/
 
 .products-container {
     display: grid;
@@ -526,9 +500,7 @@ header h1 {
 }
 
 
-/* =====================================
-   14. BILLEDOMRÅDE
-===================================== */
+/* BILLEDOMRÅDE*/
 
 .product-image-container {
     position: relative;
@@ -550,9 +522,7 @@ header h1 {
 }
 
 
-/* =====================================
-   15. SPILTYPE IKONER
-===================================== */
+/* SPILTYPE IKONER*/
 
 .game-type-icon {
     position: absolute;
@@ -580,9 +550,7 @@ header h1 {
 }
 
 
-/* =====================================
-   16. SPILINFORMATION
-===================================== */
+/* SPILINFORMATION*/
 
 .product-info {
     padding: 30px 40px 40px;
@@ -608,9 +576,7 @@ header h1 {
 }
 
 
-/* =====================================
-   17. KATEGORI OG BEDØMMELSE
-===================================== */
+/* KATEGORI OG BEDØMMELSE*/
 
 .product-meta {
     display: flex;
@@ -649,9 +615,7 @@ header h1 {
 }
 
 
-/* =====================================
-   18. SE MERE KNAP
-===================================== */
+/* SE MERE KNAP*/
 
 .product-button {
     width: 100%;
@@ -678,9 +642,7 @@ header h1 {
 }
 
 
-/* =====================================
-   20. DIALOGBOKS
-===================================== */
+/* DIALOGBOKS*/
 
 dialog {
     margin: auto;
@@ -715,9 +677,7 @@ dialog::backdrop {
 }
 
 
-/* =====================================
-   21. FOOTER
-===================================== */
+/* FOOTER */
 
 footer {
     text-align: center;
@@ -731,9 +691,7 @@ footer {
 }
 
 
-/* =====================================
-   22. KATEGORIKNAPPER
-===================================== */
+/* KATEGORIKNAPPER */
 
 .game-container {
     width: 100%;
@@ -815,9 +773,7 @@ footer {
 
 
 
-/* =====================================
-   23. RESPONSIVT DESIGN - TABLET
-===================================== */
+/* RESPONSIVT DESIGN - TABLET*/
 
 @media (max-width: 768px) {
 
@@ -841,9 +797,7 @@ footer {
 }
 
 
-/* =====================================
-   24. RESPONSIVT DESIGN - MOBIL
-===================================== */
+/* RESPONSIVT DESIGN - MOBIL */
 
 @media (max-width: 600px) {
 
@@ -928,9 +882,7 @@ footer {
 }
 
 
-/* =====================================
-   25. EKSTRA SMÅ MOBILSKÆRME
-===================================== */
+/* EKSTRA SMÅ MOBILSKÆRME */
 
 @media (max-width: 400px) {
 
