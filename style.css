@@ -738,8 +738,7 @@ footer {
     color: white;
 
     -webkit-text-stroke: 1.5px black;
-    paint-order: stroke fill;
-
+   
     cursor: pointer;
 
     transition: transform 0.2s;
