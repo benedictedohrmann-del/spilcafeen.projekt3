@@ -121,13 +121,6 @@
     }
 
 
-// 8. MEST POPULÆRE
-    if (sorterEfter === "populaere") {
-        filteredProducts.sort((a, b) =>
-            b.popularity - a.popularity
-        );
-    }
-
 
 // VIS RESULTATER
     displayProducts(filteredProducts);
@@ -165,7 +158,3 @@
     filtrerProdukter();
     closeFilterPanel();
     });
-
-
-
-
